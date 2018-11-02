@@ -1,0 +1,7 @@
+2018-11-02 20:44:35 ERROR TariffErrorHandler:26 - 4 : 52 - cvc-elt.1: Cannot find the declaration of element 'ns:tariffs'.
+2018-11-02 21:00:27 ERROR XmlValidatorSax:36 - src/main/java/com/epam/example.xmlis not valid: cvc-elt.1: Cannot find the declaration of element 'ns:tariffss'.
+2018-11-02 21:15:18 ERROR XmlValidatorSax:36 - src/main/java/com/epam/example.xmlis not valid: cvc-maxExclusive-valid: Value '152.34' is not facet-valid with respect to maxExclusive '100.0' for type '#AnonType_smsPriceTimeBasedTariff'.
+2018-11-02 21:29:02 ERROR XmlValidatorSax:36 - src/main/java/com/epam/example.xmlis not valid: cvc-enumeration-valid: Value 'Velcom' is not facet-valid with respect to enumeration '[VELCOM, MTS, LIFE]'. It must be a value from the enumeration.
+2018-11-02 22:32:51 ERROR XmlValidatorSax:36 - src/main/java/com/epam/example.xmlis not valid: cvc-complex-type.2.4.a: Invalid content was found starting with element 'ns:UnlimitedTariff'. One of '{"com.epam.entities":tariff}' is expected.
+2018-11-02 22:42:26 ERROR XmlValidatorSax:36 - src/main/java/com/epam/example.xmlis not valid: src-single-facet-value: The facet 'minInclusive' is defined more than once.
+2018-11-02 22:43:11 ERROR XmlValidatorSax:36 - src/main/java/com/epam/example.xmlis not valid: cvc-maxInclusive-valid: Value '500.99' is not facet-valid with respect to maxInclusive '20.0' for type 'decimal'.
