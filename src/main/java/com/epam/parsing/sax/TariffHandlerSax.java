@@ -76,7 +76,7 @@ public class TariffHandlerSax extends DefaultHandler {
     public void characters(char[] ch, int start, int length) {
         String s = new String(ch, start, length).trim();
         BigDecimal decimal;
-        CallPrices callPrices = new CallPrices();
+        CallPrices callPrices;
         if (currentEnum != null) {
             switch (currentEnum) {
                 case SMS_PRICE:
@@ -86,11 +86,6 @@ public class TariffHandlerSax extends DefaultHandler {
                     break;
                 case PRICE_INSIDE_NETWORK:
                     decimal = new BigDecimal(s).setScale(2, BigDecimal.ROUND_HALF_DOWN);
-
-               /*     callPrices.setPriceInsideNetwork(decimal);
-                    ((TimeBasedTariff) currentTariff).getCallPrices().setPriceInsideNetwork(decimal);*/
-
-                    callPrices = new CallPrices();
                     callPrices = ((TimeBasedTariff) currentTariff).getCallPrices();
                     callPrices.setPriceInsideNetwork(decimal);
                     break;
