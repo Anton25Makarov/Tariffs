@@ -1,6 +1,7 @@
-package com.epam.parsing;
+package com.epam.parsing.dom;
 
 import com.epam.entities.Tariff;
+import com.epam.parsing.Parser;
 
 import java.util.List;
 

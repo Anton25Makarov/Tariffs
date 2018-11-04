@@ -1,7 +1,9 @@
-package com.epam.parsing;
+package com.epam.parsing.sax;
 
 import com.epam.entities.*;
 import com.epam.exception.ParseException;
+import com.epam.parsing.Parser;
+import com.epam.parsing.sax.SaxParser;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -9,8 +11,7 @@ import javax.xml.bind.JAXBException;
 import java.math.BigDecimal;
 import java.util.List;
 
-
-public class JaxbParserTest {
+public class SaxParserTest {
     private static final String INPUT_FILE = "src/test/resources/input.xml";
     private static final BigDecimal SMS_PRICE = new BigDecimal(1).
             setScale(2, BigDecimal.ROUND_HALF_DOWN);
@@ -24,9 +25,9 @@ public class JaxbParserTest {
             setScale(2, BigDecimal.ROUND_HALF_DOWN);
 
     @Test
-    public void shouldParseWhenXmlIsValid() throws ParseException, JAXBException {
+    public void shouldParseWhenXmlIsValid() throws JAXBException, ParseException {
         // given
-        Parser parser = new JaxbParser();
+        Parser parser = new SaxParser();
         // when
         List<Tariff> actual = parser.parse(INPUT_FILE);
         // then

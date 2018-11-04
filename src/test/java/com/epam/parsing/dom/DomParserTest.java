@@ -1,9 +1,11 @@
-package com.epam.parsing;
+package com.epam.parsing.dom;
 
 import com.epam.entities.Tariff;
 import com.epam.entities.TimeBasedTariff;
 import com.epam.entities.UnlimitedTariff;
 import com.epam.exception.ParseException;
+import com.epam.parsing.Parser;
+import com.epam.parsing.dom.DomParser;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 })
 public class TimeBasedTariff extends Tariff {
     @XmlElement(name = "sms-price", namespace = "http://epam.com/tariff", required = true)
-//    @XmlJavaTypeAdapter(BigDecimalAdaptor.class)
+    @XmlJavaTypeAdapter(BigDecimalAdaptor.class)
     private BigDecimal smsPrice;
     @XmlElement(name = "call-prices", namespace = "http://epam.com/tariff", required = true)
     private CallPrices callPrices;

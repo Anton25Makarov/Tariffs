@@ -1,8 +1,9 @@
-package com.epam.parsing;
+package com.epam.parsing.jaxb;
 
 import com.epam.entities.Tariff;
 import com.epam.entities.Tariffs;
 import com.epam.exception.ParseException;
+import com.epam.parsing.Parser;
 
 import javax.xml.bind.*;
 import java.io.File;

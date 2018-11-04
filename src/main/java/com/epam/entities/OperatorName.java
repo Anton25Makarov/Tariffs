@@ -10,7 +10,6 @@ public enum OperatorName {
     LIFE,
     MTS;
 
-
     public static OperatorName fromValue(String v) {
         return valueOf(v);
     }
