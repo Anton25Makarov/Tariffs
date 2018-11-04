@@ -25,74 +25,43 @@ public class TariffHandlerSax extends DefaultHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attrs) {
-//        OperatorName tempOperatorName;
-//        switch (localName) {
-//            case "unlimited-tariff":
-//                currentTariff = new UnlimitedTariff();
-//                currentTariff.setName(attrs.getValue("name"));
-//
-//                tempOperatorName = OperatorName.VELCOM; // by default
-//                if (attrs.getLength() == 2) {
-//                    String attrValue = attrs.getValue("operator-name");
-//                    tempOperatorName = OperatorName.valueOf(attrValue);
-//                }
-//                currentTariff.setOperatorName(tempOperatorName);
-//                break;
-//            case "time-based-tariff":
-//                currentTariff = new TimeBasedTariff();
-//                currentTariff.setName(attrs.getValue("name"));
-//
-//                tempOperatorName = OperatorName.VELCOM; // by default
-//                if (attrs.getLength() == 2) {
-//                    String attrValue = attrs.getValue("operator-name");
-//                    tempOperatorName = OperatorName.valueOf(attrValue);
-//                }
-//                currentTariff.setOperatorName(tempOperatorName);
-//                break;
-//            case "call-prices":
-//                ((TimeBasedTariff) currentTariff).setCallPrices(new CallPrices());
-//                break;
-//            case "tariff":
-//                break;
-//            default:
-//                String stringEnum = localName.toUpperCase();
-//                stringEnum = stringEnum.replace('-', '_');
-//                TariffEnum tempTariffEnum = TariffEnum.valueOf(stringEnum);
-//                if (withText.contains(tempTariffEnum)) {
-//                    currentEnum = tempTariffEnum;
-//                }
-//                break;
-//        }
-        if ("unlimited-tariff".equals(localName)) {
-            currentTariff = new UnlimitedTariff();
-            currentTariff.setName(attrs.getValue("name"));
+        OperatorName tempOperatorName;
+        switch (localName) {
+            case "unlimited-tariff":
+                currentTariff = new UnlimitedTariff();
+                currentTariff.setName(attrs.getValue("name"));
 
-            OperatorName temp = OperatorName.VELCOM; // by default
-            if (attrs.getLength() == 2) {
-                String attrValue = attrs.getValue("operator-name");
-                temp = OperatorName.valueOf(attrValue);
-            }
-            currentTariff.setOperatorName(temp);
-        } else if ("time-based-tariff".equals(localName)) {
-            currentTariff = new TimeBasedTariff();
-            currentTariff.setName(attrs.getValue("name"));
+                tempOperatorName = OperatorName.VELCOM; // by default
+                if (attrs.getLength() == 2) {
+                    String attrValue = attrs.getValue("operator-name");
+                    tempOperatorName = OperatorName.valueOf(attrValue);
+                }
+                currentTariff.setOperatorName(tempOperatorName);
+                break;
+            case "time-based-tariff":
+                currentTariff = new TimeBasedTariff();
+                currentTariff.setName(attrs.getValue("name"));
 
-            OperatorName temp = OperatorName.VELCOM; // by default
-            if (attrs.getLength() == 2) {
-                String attrValue = attrs.getValue("operator-name");
-                temp = OperatorName.valueOf(attrValue);
-            }
-            currentTariff.setOperatorName(temp);
-        } else if ("tariffs".equals(localName)) {
-        } else if ("call-prices".equals(localName)) {
-            ((TimeBasedTariff) currentTariff).setCallPrices(new CallPrices());
-        } else {
-            String stringEnum = localName.toUpperCase();
-            stringEnum = stringEnum.replace('-', '_');
-            TariffEnum temp = TariffEnum.valueOf(stringEnum);
-            if (withText.contains(temp)) {
-                currentEnum = temp;
-            }
+                tempOperatorName = OperatorName.VELCOM; // by default
+                if (attrs.getLength() == 2) {
+                    String attrValue = attrs.getValue("operator-name");
+                    tempOperatorName = OperatorName.valueOf(attrValue);
+                }
+                currentTariff.setOperatorName(tempOperatorName);
+                break;
+            case "call-prices":
+                ((TimeBasedTariff) currentTariff).setCallPrices(new CallPrices());
+                break;
+            case "tariffs":
+                break;
+            default:
+                String stringEnum = localName.toUpperCase();
+                stringEnum = stringEnum.replace('-', '_');
+                TariffEnum tempTariffEnum = TariffEnum.valueOf(stringEnum);
+                if (withText.contains(tempTariffEnum)) {
+                    currentEnum = tempTariffEnum;
+                }
+                break;
         }
     }
 
