@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tariffs xmlns="http://epam.com/tariff">
+
+    <time-based-tariff name="Lemon">
+        <sms-price>1.00</sms-price>
+        <call-prices>
+            <price-inside-network>2.20</price-inside-network>
+            <price-outside-network>3.30</price-outside-network>
+            <price-landlines-network>4.40</price-landlines-network>
+        </call-prices>
+    </time-based-tariff>
+
+    <unlimited-tariff name="Comfort" operator-name="MTS">
+        <payroll>15.50</payroll>
+    </unlimited-tariff>
+
+</tariffs>

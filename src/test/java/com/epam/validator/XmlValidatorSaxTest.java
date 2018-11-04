@@ -10,7 +10,7 @@ public class XmlValidatorSaxTest {
     public void valid(){
         XmlValidatorSax validatorSax = new XmlValidatorSax();
 
-        boolean result = validatorSax.isValid("src/main/java/com/epam/example.xml");
+        boolean result = validatorSax.isValid("src/test/resources/input.xml");
 
         Assert.assertTrue(result);
     }

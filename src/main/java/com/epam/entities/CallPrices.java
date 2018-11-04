@@ -1,27 +1,68 @@
 package com.epam.entities;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.math.BigDecimal;
 
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "call-prices", namespace = "http://epam.com/tariff", propOrder = {
+        "priceInsideNetwork",
+        "priceOutsideNetwork",
+        "priceLandLinesNetwork"
+})
 public class CallPrices {
+    @XmlElement(name = "price-inside-network", namespace = "http://epam.com/tariff", required = true)
+    @XmlJavaTypeAdapter(BigDecimalAdaptor.class)
     private BigDecimal priceInsideNetwork;
+    @XmlElement(name = "price-outside-network", namespace = "http://epam.com/tariff", required = true)
+    @XmlJavaTypeAdapter(BigDecimalAdaptor.class)
     private BigDecimal priceOutsideNetwork;
-    private BigDecimal priceLandLineNetwork; //on stationary phones
+    @XmlElement(name = "price-landlines-network", namespace = "http://epam.com/tariff", required = true)
+    @XmlJavaTypeAdapter(BigDecimalAdaptor.class)
+    private BigDecimal priceLandLinesNetwork; //on stationary phones
 
-    public CallPrices(BigDecimal priceInsideNetwork, BigDecimal priceOutsideNetwork, BigDecimal priceLandLineNetwork) {
+    public CallPrices() {
+    }
+
+    public CallPrices(BigDecimal priceInsideNetwork, BigDecimal priceOutsideNetwork, BigDecimal priceLandLinesNetwork) {
         this.priceInsideNetwork = priceInsideNetwork;
         this.priceOutsideNetwork = priceOutsideNetwork;
-        this.priceLandLineNetwork = priceLandLineNetwork;
+        this.priceLandLinesNetwork = priceLandLinesNetwork;
     }
 
     public BigDecimal getPriceInsideNetwork() {
         return priceInsideNetwork;
     }
 
+    public void setPriceInsideNetwork(BigDecimal priceInsideNetwork) {
+        this.priceInsideNetwork = priceInsideNetwork;
+    }
+
     public BigDecimal getPriceOutsideNetwork() {
         return priceOutsideNetwork;
     }
 
-    public BigDecimal getPriceLandLineNetwork() {
-        return priceLandLineNetwork;
+    public void setPriceOutsideNetwork(BigDecimal priceOutsideNetwork) {
+        this.priceOutsideNetwork = priceOutsideNetwork;
+    }
+
+    public BigDecimal getPriceLandLinesNetwork() {
+        return priceLandLinesNetwork;
+    }
+
+    public void setPriceLandLinesNetwork(BigDecimal priceLandLinesNetwork) {
+        this.priceLandLinesNetwork = priceLandLinesNetwork;
+    }
+
+    @Override
+    public String toString() {
+        return "CallPrices{" +
+                "priceInsideNetwork=" + priceInsideNetwork +
+                ", priceOutsideNetwork=" + priceOutsideNetwork +
+                ", priceLandLinesNetwork=" + priceLandLinesNetwork +
+                '}';
     }
 }

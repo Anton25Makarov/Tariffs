@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
-        targetNamespace="com.epam.entities"
-        xmlns:tns="com.epam.entities"
+        targetNamespace="http://epam.com/tariff"
+        xmlns:tns="http://epam.com/tariff"
         elementFormDefault="qualified">
 
     <element name="tariff" type="tns:Tariff" abstract="true"/>
-    <element name="timeBasedTariff" type="tns:TimeBasedTariff" substitutionGroup="tns:tariff"/>
-    <element name="unlimitedTariff" type="tns:UnlimitedTariff" substitutionGroup="tns:tariff"/>
+    <element name="time-based-tariff" type="tns:TimeBasedTariff" substitutionGroup="tns:tariff"/>
+    <element name="unlimited-tariff" type="tns:UnlimitedTariff" substitutionGroup="tns:tariff"/>
 
     <element name="tariffs">
         <complexType>
@@ -17,11 +17,14 @@
     </element>
 
     <complexType name="Tariff">
-        <sequence>
-            <element name="operatorName" type="tns:OperatorName"/>
-        </sequence>
-        <attribute name="name" type="string" default="comfort"/>
+        <attribute name="name" type="tns:name" use="required"/>
+        <attribute name="operator-name" type="tns:OperatorName" default="VELCOM"/>
     </complexType>
+
+    <simpleType name="name">
+        <restriction base="ID">
+        </restriction>
+    </simpleType>
 
     <simpleType name="OperatorName">
         <restriction base="string">
@@ -35,8 +38,8 @@
         <complexContent>
             <extension base="tns:Tariff">
                 <sequence>
-                    <element name="smsPrice" type="decimal"/>
-                    <element name="callPrices" type="tns:CallPrices"/>
+                    <element name="sms-price" type="decimal"/>
+                    <element name="call-prices" type="tns:CallPrices"/>
                 </sequence>
             </extension>
         </complexContent>
@@ -44,9 +47,9 @@
 
     <complexType name="CallPrices">
         <sequence>
-            <element name="priceInsideNetwork" type="tns:decimal"/>
-            <element name="priceOutsideNetwork" type="tns:decimal"/>
-            <element name="priceLandLineNetwork" type="tns:decimal"/>
+            <element name="price-inside-network" type="tns:decimal"/>
+            <element name="price-outside-network" type="tns:decimal"/>
+            <element name="price-landlines-network" type="tns:decimal"/>
         </sequence>
     </complexType>
 

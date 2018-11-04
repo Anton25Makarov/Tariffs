@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ns:tariffs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xmlns:ns="com.epam.entities"
-            xsi:schemaLocation="com.epam.entities">
+            xmlns:ns="http://epam.com/tariff"
+            xsi:schemaLocation="http://epam.com/tariff">
 
-    <ns:timeBasedTariff name="Lemon">
-        <ns:operatorName>MTS</ns:operatorName>
-        <ns:smsPrice>0.10</ns:smsPrice>
-        <ns:callPrices>
-            <ns:priceInsideNetwork>32.0</ns:priceInsideNetwork>
-            <ns:priceOutsideNetwork>2.20</ns:priceOutsideNetwork>
-            <ns:priceLandLineNetwork>2.00</ns:priceLandLineNetwork>
-        </ns:callPrices>
-    </ns:timeBasedTariff>
+    <ns:time-based-tariff name="Lemon">
+        <ns:sms-price>0.10</ns:sms-price>
+        <ns:call-prices>
+            <ns:price-inside-network>32.0</ns:price-inside-network>
+            <ns:price-outside-network>2.20</ns:price-outside-network>
+            <ns:price-landlines-network>2.00</ns:price-landlines-network>
+        </ns:call-prices>
+    </ns:time-based-tariff>
 
-    <ns:unlimitedTariff name="Business">
-        <ns:operatorName>LIFE</ns:operatorName>
+    <ns:unlimited-tariff name="Comfort" operator-name="MTS">
         <ns:payroll>10.99</ns:payroll>
-    </ns:unlimitedTariff>
+    </ns:unlimited-tariff>
 
 </ns:tariffs>
