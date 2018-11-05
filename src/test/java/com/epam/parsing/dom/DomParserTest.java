@@ -1,20 +1,27 @@
 package com.epam.parsing.dom;
 
-import com.epam.entities.Tariff;
-import com.epam.entities.TimeBasedTariff;
-import com.epam.entities.UnlimitedTariff;
+import com.epam.entities.*;
 import com.epam.exception.ParseException;
 import com.epam.parsing.Parser;
-import com.epam.parsing.dom.DomParser;
 import org.junit.Assert;
 import org.junit.Test;
 
 import javax.xml.bind.JAXBException;
+import java.math.BigDecimal;
 import java.util.List;
 
 public class DomParserTest {
-
-    private static final String INPUT_FILE = "src/main/test/resources/input.xml";
+    private static final String INPUT_FILE = "src/test/resources/input.xml";
+    private static final BigDecimal SMS_PRICE = new BigDecimal(1).
+            setScale(2, BigDecimal.ROUND_HALF_DOWN);
+    private static final BigDecimal PRICE_INSIDE_NETWORK = new BigDecimal(2.2).
+            setScale(2, BigDecimal.ROUND_HALF_DOWN);
+    private static final BigDecimal PRICE_OUTSIDE_NETWORK = new BigDecimal(3.3).
+            setScale(2, BigDecimal.ROUND_HALF_DOWN);
+    private static final BigDecimal PRICE_LANDLINES_NETWORK = new BigDecimal(4.4).
+            setScale(2, BigDecimal.ROUND_HALF_DOWN);
+    private static final BigDecimal PAYROLL = new BigDecimal(15.50).
+            setScale(2, BigDecimal.ROUND_HALF_DOWN);
 
     @Test
     public void shouldParseWhenXmlIsValid() throws JAXBException, ParseException {
@@ -23,26 +30,29 @@ public class DomParserTest {
         // when
         List<Tariff> actual = parser.parse(INPUT_FILE);
         // then
-        Assert.assertEquals(3, actual.size());
+        Assert.assertEquals(2, actual.size());
 
         TimeBasedTariff first = (TimeBasedTariff) actual.get(0);
 
-        Assert.assertEquals(first.getClass(), Tariff.class);
+        Assert.assertEquals(first.getClass(), TimeBasedTariff.class);
+
+        CallPrices callPrices = first.getCallPrices();
+        OperatorName firstOperatorName = first.getOperatorName();
 
         Assert.assertEquals("Lemon", first.getName());
-        Assert.assertEquals("Velcom", first.getOperatorName());
-        Assert.assertEquals(1, first.getSmsPrice());
-        Assert.assertEquals(0.5, first.getCallPrices().getPriceInsideNetwork());
-        Assert.assertEquals(0.6, first.getCallPrices().getPriceOutsideNetwork());
-        Assert.assertEquals(0.7, first.getCallPrices().getPriceLandLinesNetwork());
+        Assert.assertEquals("Velcom".toUpperCase(), firstOperatorName.value());
+        Assert.assertEquals(SMS_PRICE, first.getSmsPrice());
+        Assert.assertEquals(PRICE_INSIDE_NETWORK, callPrices.getPriceInsideNetwork());
+        Assert.assertEquals(PRICE_OUTSIDE_NETWORK, callPrices.getPriceOutsideNetwork());
+        Assert.assertEquals(PRICE_LANDLINES_NETWORK, callPrices.getPriceLandLinesNetwork());
 
         UnlimitedTariff second = (UnlimitedTariff) actual.get(1);
+        OperatorName secondOperatorName = second.getOperatorName();
 
-        Assert.assertEquals(second.getClass(), Tariff.class);
+        Assert.assertEquals(second.getClass(), UnlimitedTariff.class);
 
         Assert.assertEquals("Comfort", second.getName());
-        Assert.assertEquals("MTS", second.getOperatorName());
-        Assert.assertEquals(7.99, second.getPayroll());
-
+        Assert.assertEquals("MTS", secondOperatorName.value());
+        Assert.assertEquals(PAYROLL, second.getPayroll());
     }
 }

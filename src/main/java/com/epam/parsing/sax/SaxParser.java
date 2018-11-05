@@ -22,9 +22,9 @@ public class SaxParser implements Parser {
             reader.setContentHandler(handler);
             reader.parse(filePath);
         } catch (SAXException e) {
-            throw new ParseException("ошибка SAX парсера", e);
+            throw new ParseException("SAXException", e);
         } catch (IOException e) {
-            throw new ParseException("ошибка I/O потока", e);
+            throw new ParseException("I/O Exception", e);
         }
 
         return handler.getTariffs();
