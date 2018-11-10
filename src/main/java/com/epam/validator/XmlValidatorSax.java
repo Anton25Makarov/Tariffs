@@ -20,7 +20,6 @@ public class XmlValidatorSax {
     public boolean isValid(String xmlFilePath) {
         SchemaFactory factory = SchemaFactory.newInstance(LANGUAGE);
         File xsdPath = new File(XSD_PATH);
-
         try {
             // creating schema
             Schema schema = factory.newSchema(xsdPath);
@@ -29,15 +28,11 @@ public class XmlValidatorSax {
             // check document
             Source source = new StreamSource(xmlFilePath);
             validator.validate(source);
-            System.out.println(xmlFilePath + " is valid");
-
             return true;
         } catch (SAXException e) {
-            LOGGER.error(xmlFilePath + "is not valid: " + e.getMessage());
-            //System.err.print("validation " + xmlFilePath + " is not valid because " + e.getMessage());
+            LOGGER.error(xmlFilePath + " is not valid: " + e.getMessage());
         } catch (IOException e) {
-            LOGGER.error("I/O Exception: " + e.getStackTrace());
-            //System.err.print(xmlFilePath + " is not valid because " + e.getMessage());
+            LOGGER.error(e);
         }
         return false;
     }

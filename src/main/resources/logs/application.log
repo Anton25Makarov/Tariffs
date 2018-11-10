@@ -8,3 +8,10 @@
 2018-11-04 00:39:51 ERROR XmlValidatorSax:39 - I/O Exception: [Ljava.lang.StackTraceElement;@12bb4df8
 2018-11-04 00:40:20 ERROR XmlValidatorSax:39 - I/O Exception: [Ljava.lang.StackTraceElement;@12bb4df8
 2018-11-04 00:41:05 ERROR XmlValidatorSax:36 - src/test/resources/input.xmlis not valid: cvc-elt.1: Cannot find the declaration of element 'tariffs'.
+2018-11-06 16:02:04 ERROR XmlValidatorSax:36 - src/test/resources/input.xmlis not valid: cvc-elt.1: Cannot find the declaration of element 'tariffs'.
+2018-11-06 16:02:38 ERROR XmlValidatorSax:36 - src/test/resources/input.xmlis not valid: cvc-elt.1: Cannot find the declaration of element 'tariffs'.
+2018-11-06 16:04:11 ERROR XmlValidatorSax:36 - src/test/resources/input.xmlis not valid: cvc-elt.1: Cannot find the declaration of element 'tariffs'.
+2018-11-06 16:06:37 ERROR XmlValidatorSax:36 - src/test/resources/input.xmlis not valid: s4s-elt-schema-ns: The namespace of element 'schema' must be from the schema namespace, 'http://www.w3.org/2001/XMLSchema'.
+2018-11-06 16:11:09 ERROR XmlValidatorSax:33 - src/test/resources/input.xml is not valid: cvc-elt.1: Cannot find the declaration of element 'tariffs'.
+2018-11-06 16:14:12 ERROR XmlValidatorSax:33 - src/test/resources/input.xml is not valid: cvc-elt.1: Cannot find the declaration of element 'tariffs'.
+2018-11-11 00:59:28 ERROR XmlValidatorSax:33 - src/test/resources/input.xml is not valid: cvc-pattern-valid: Value '15.' is not facet-valid with respect to pattern '\d{1,5}([.]\d{1,2})?' for type 'decimal'.

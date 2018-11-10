@@ -30,7 +30,7 @@ public class DomParserTest {
         // when
         List<Tariff> actual = parser.parse(INPUT_FILE);
         // then
-        Assert.assertEquals(2, actual.size());
+        Assert.assertEquals(4, actual.size());
 
         TimeBasedTariff first = (TimeBasedTariff) actual.get(0);
 
@@ -46,7 +46,7 @@ public class DomParserTest {
         Assert.assertEquals(PRICE_OUTSIDE_NETWORK, callPrices.getPriceOutsideNetwork());
         Assert.assertEquals(PRICE_LANDLINES_NETWORK, callPrices.getPriceLandLinesNetwork());
 
-        UnlimitedTariff second = (UnlimitedTariff) actual.get(1);
+        UnlimitedTariff second = (UnlimitedTariff) actual.get(2);
         OperatorName secondOperatorName = second.getOperatorName();
 
         Assert.assertEquals(second.getClass(), UnlimitedTariff.class);

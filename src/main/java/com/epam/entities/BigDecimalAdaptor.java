@@ -7,12 +7,12 @@ public class BigDecimalAdaptor extends XmlAdapter<String, BigDecimal> {
 
 
     @Override
-    public BigDecimal unmarshal(String v) throws Exception {
-        return new BigDecimal(v).setScale(2);
+    public BigDecimal unmarshal(String v) {
+        return new BigDecimal(v).setScale(2, BigDecimal.ROUND_HALF_DOWN);
     }
 
     @Override
-    public String marshal(BigDecimal v) throws Exception {
-        return null;
+    public String marshal(BigDecimal v) {
+        return String.valueOf(v);
     }
 }

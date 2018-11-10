@@ -14,4 +14,17 @@
         <payroll>15.50</payroll>
     </unlimited-tariff>
 
+    <time-based-tariff name="Business">
+        <sms-price>1.40</sms-price>
+        <call-prices>
+            <price-inside-network>1.99</price-inside-network>
+            <price-outside-network>2.49</price-outside-network>
+            <price-landlines-network>3.00</price-landlines-network>
+        </call-prices>
+    </time-based-tariff>
+
+    <unlimited-tariff name="Family">
+        <payroll>9.99</payroll>
+    </unlimited-tariff>
+
 </tariffs>

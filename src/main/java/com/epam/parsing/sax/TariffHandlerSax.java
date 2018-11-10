@@ -80,7 +80,6 @@ public class TariffHandlerSax extends DefaultHandler {
         if (currentEnum != null) {
             switch (currentEnum) {
                 case SMS_PRICE:
-
                     decimal = new BigDecimal(s).setScale(2, BigDecimal.ROUND_HALF_DOWN);
                     ((TimeBasedTariff) currentTariff).setSmsPrice(decimal);
                     break;

@@ -6,6 +6,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "call-prices", namespace = "http://epam.com/tariff", propOrder = {
@@ -64,5 +65,24 @@ public class CallPrices {
                 ", priceOutsideNetwork=" + priceOutsideNetwork +
                 ", priceLandLinesNetwork=" + priceLandLinesNetwork +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        CallPrices that = (CallPrices) o;
+        return Objects.equals(priceInsideNetwork, that.priceInsideNetwork) &&
+                Objects.equals(priceOutsideNetwork, that.priceOutsideNetwork) &&
+                Objects.equals(priceLandLinesNetwork, that.priceLandLinesNetwork);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(priceInsideNetwork, priceOutsideNetwork, priceLandLinesNetwork);
     }
 }

@@ -26,7 +26,7 @@ public class JaxbParser implements Parser {
             }
             return tariffList;
         } catch (JAXBException e) {
-            throw new ParseException("JAXBException", e);
+            throw new ParseException(e);
         }
     }
 

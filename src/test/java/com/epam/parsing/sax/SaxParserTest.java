@@ -31,7 +31,7 @@ public class SaxParserTest {
         // when
         List<Tariff> actual = parser.parse(INPUT_FILE);
         // then
-        Assert.assertEquals(2, actual.size());
+        Assert.assertEquals(4, actual.size());
 
         TimeBasedTariff first = (TimeBasedTariff) actual.get(0);
 

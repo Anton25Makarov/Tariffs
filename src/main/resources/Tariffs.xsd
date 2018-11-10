@@ -38,7 +38,7 @@
         <complexContent>
             <extension base="tns:Tariff">
                 <sequence>
-                    <element name="sms-price" type="decimal"/>
+                    <element name="sms-price" type="tns:decimal"/>
                     <element name="call-prices" type="tns:CallPrices"/>
                 </sequence>
             </extension>

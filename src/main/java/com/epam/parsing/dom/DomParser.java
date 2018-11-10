@@ -30,7 +30,7 @@ public class DomParser implements Parser {
         try {
             documentBuilder = factory.newDocumentBuilder();
         } catch (ParserConfigurationException e) {
-            throw new ParseException("ParserConfigurationException", e);
+            throw new ParseException(e);
         }
 
         buildListTariffs(filePath, documentBuilder, tariffs);
@@ -44,10 +44,8 @@ public class DomParser implements Parser {
 
         try {
             doc = documentBuilder.parse(fileName);
-        } catch (SAXException e) {
-            throw new ParseException("SAXException", e);
-        } catch (IOException e) {
-            throw new ParseException("I/O Exception", e);
+        } catch (SAXException | IOException e) {
+            throw new ParseException(e);
         }
 
         Element root = doc.getDocumentElement();
@@ -72,7 +70,7 @@ public class DomParser implements Parser {
     }
 
     private Tariff buildTariff(Element tariffElement) {
-        Tariff tariff = null;
+        Tariff tariff;
 
         String name = tariffElement.getAttribute("name");
 
@@ -127,7 +125,7 @@ public class DomParser implements Parser {
                 ((UnlimitedTariff) tariff).setPayroll(payrollDecimal);
                 break;
             default:
-                System.out.println("Trouble in switch");
+                throw new IllegalArgumentException();
         }
 
         return tariff;

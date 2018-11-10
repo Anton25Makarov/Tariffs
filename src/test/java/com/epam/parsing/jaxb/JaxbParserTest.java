@@ -3,7 +3,6 @@ package com.epam.parsing.jaxb;
 import com.epam.entities.*;
 import com.epam.exception.ParseException;
 import com.epam.parsing.Parser;
-import com.epam.parsing.jaxb.JaxbParser;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -32,7 +31,7 @@ public class JaxbParserTest {
         // when
         List<Tariff> actual = parser.parse(INPUT_FILE);
         // then
-        Assert.assertEquals(2, actual.size());
+        Assert.assertEquals(4, actual.size());
 
         TimeBasedTariff first = (TimeBasedTariff) actual.get(0);
 

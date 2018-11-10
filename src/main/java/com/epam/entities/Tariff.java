@@ -3,6 +3,7 @@ package com.epam.entities;
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.util.Objects;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -49,5 +50,23 @@ public abstract class Tariff {
                 "name='" + name + '\'' +
                 ", operatorName=" + operatorName +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Tariff tariff = (Tariff) o;
+        return Objects.equals(name, tariff.name) &&
+                operatorName == tariff.operatorName;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, operatorName);
     }
 }

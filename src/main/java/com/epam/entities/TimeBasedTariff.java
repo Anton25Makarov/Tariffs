@@ -3,6 +3,7 @@ package com.epam.entities;
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "time-based-tariff", propOrder = {
@@ -48,5 +49,23 @@ public class TimeBasedTariff extends Tariff {
                 "smsPrice=" + smsPrice +
                 ", callPrices=" + callPrices +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        TimeBasedTariff that = (TimeBasedTariff) o;
+        return Objects.equals(smsPrice, that.smsPrice) &&
+                Objects.equals(callPrices, that.callPrices);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(smsPrice, callPrices);
     }
 }

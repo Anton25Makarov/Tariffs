@@ -13,7 +13,7 @@ public enum TariffEnum {
 
     private String value;
 
-    private TariffEnum(String value) {
+    TariffEnum(String value) {
         this.value = value;
     }
 
